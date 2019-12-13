@@ -1,4 +1,4 @@
-package app
+package handlers
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-func (s *server) roomsHandler() http.HandlerFunc {
+func Rooms() http.HandlerFunc {
 	upgrader := websocket.Upgrader{
 		ReadBufferSize:  1024,
 		WriteBufferSize: 1024,

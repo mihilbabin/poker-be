@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/joho/godotenv"
+	"github.com/mihilbabin/poker/app"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -12,6 +13,6 @@ func init() {
 }
 
 func main() {
-	s := newServer()
-	s.Start()
+	a := app.New()
+	a.Start()
 }
