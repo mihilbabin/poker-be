@@ -4,7 +4,7 @@ import (
 	"sync"
 )
 
-type config struct {
+type Config struct {
 	Server *serverConfig
 }
 
@@ -12,18 +12,18 @@ type serverConfig struct {
 	Host string
 }
 
-var conf *config
+var conf *Config
 var once sync.Once
 
-func Config() *config {
+func Init() *Config {
 	once.Do(func() {
 		conf = newConfig()
 	})
 	return conf
 }
 
-func newConfig() *config {
-	return &config{
+func newConfig() *Config {
+	return &Config{
 		Server: &serverConfig{
 			Host: GetEnv("HOST").Str("localhost:8080"),
 		},
